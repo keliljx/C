@@ -1,0 +1,60 @@
+#include<iostream>
+#include<string.h>
+#include<math.h>
+
+using namespace std;
+
+int queen[8];// 下标代表行，queen[i]代表i行的queen所在的列
+int k;
+int cont = 0;
+/*每一行放置一个queen，所以在判断某一个位置是否可以放置时，只需要判定 列和斜线 是否满足条件就行了*/
+
+void search(int row) 
+{ //搜索row行queen的位置
+	int i, j;
+	if (row == 8) 
+	{
+		//if(cont == 2)
+		//	return ;
+		//	else
+		//	cont++;
+		cout << "No " << ++k << ":" << endl;
+		for (i = 0; i < 8; i++) 
+		{
+			for (j = 0; j < 8; j++) 
+			{
+				if (j == queen[i])
+					cout<<"A";
+				else
+					cout << ".";
+			}
+			cout << endl;
+		}
+	}
+	else 
+	{
+		int sign;
+		for (j = 0; j < 8; j++) 
+		{// j col
+			queen[row] = j;
+			sign = 1;
+			for (i = 0; i < row; i++) 
+			{ //
+				if (queen[row] == queen[i] || abs(row - i) == abs(queen[row] - queen[i])) 
+				{
+					sign = 0; // 这个位置不合适，
+					break;
+				}
+			}
+			if (sign)// 如果位置合适，搜索下一行的queen的位置
+				search(row + 1);
+		}
+	}
+}
+int main() 
+{
+	memset(queen, 0, sizeof(queen));
+	k = 0;
+	search(0);
+	return 0;
+}

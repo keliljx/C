@@ -1,0 +1,111 @@
+#include <iostream>
+
+using namespace std;
+
+struct node{
+	char data;
+	struct node * next;
+};
+
+struct node *h;
+char s[101];
+
+void init();
+int judgeone(char );
+int empty();
+char gettop();
+void pop();
+void push(char );
+
+
+int main()
+{
+	int i, flag;
+
+	init();
+	cin >> s;
+	
+	flag = 1;
+	i = 0;
+	while(s[i] != '\0')
+	{
+		if(!judgeone(s[i]))
+		{
+			flag = 0;
+			break;
+		}
+		i++;
+	}
+	if(empty() && flag == 1)
+	{
+		cout << flag << endl;
+	}
+	else
+	{
+		cout << 0 << endl;
+	}
+	return 0;
+}
+
+
+int judgeone(char ch)
+{//判断当前字符是否合法
+	int flag;
+	char c;
+
+	flag = 0;
+	if(ch == ')' || ch == ']')
+	{
+		if(!empty())
+		{
+			c = gettop();
+			if((c == '(' && ch == ')') || (c == '[' && ch == ']'))
+			{
+				pop();
+				flag = 1;
+			}
+		}
+	}
+	else if(ch == '(' || ch == '[')
+	{
+		push(ch);
+		flag = 1;
+	}
+	return(flag);
+}
+
+int empty()
+{
+	if(h->next == NULL)
+	{
+		return(1);
+	}
+	else
+	{
+		return(0);
+	}
+}
+
+void init()
+{
+	h = new struct node;
+	h ->next = NULL;
+}
+
+char gettop()
+{
+	return(h->next->data);
+}
+
+void pop()
+{
+	h->next = h->next->next;
+}
+
+void push(char ch)
+{
+	struct node *p = new struct node;
+	p->data = ch;
+	p->next = h->next;
+	h->next = p;
+}

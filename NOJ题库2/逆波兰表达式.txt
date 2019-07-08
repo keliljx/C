@@ -1,0 +1,56 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int fuction(int f, int s, char ch) 
+{
+	int result;
+	switch (ch)
+	{
+		case '+':
+			result = f + s;
+			break;
+		case '-':
+			result = f - s;
+			break;
+		case '*':
+			result = f * s;
+			break;
+		case '/':
+			result = f / s;
+			break;
+		default:
+			break;
+	}
+	return result;
+}
+
+int main()
+{
+	stack<int> s;
+	char str[100];
+	int i, first, second, result;
+
+	cin >> str;
+
+	i = 0;
+	while (str[i] != '\0') 
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			s.push(int(str[i] - '0'));
+		}
+		else
+		{
+			second = s.top();
+			s.pop();
+			first = s.top();
+			s.pop();
+			result = fuction(first, second, str[i]);
+			s.push(result);
+		}
+		i++;
+	}
+	cout << s.top() << endl;
+	return 0;
+}

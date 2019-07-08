@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<math.h>
+int main(){
+	int x;
+	scanf("%d",&x);
+	for(int a=0;a<=sqrt(x);a++)
+		for(int b=a;b<=sqrt(x-a*a);b++)
+			for(int c=b;c<=sqrt(x-a*a-b*b);c++){
+				int d=sqrt(x-a*a-b*b-c*c);
+				if(d>=c&&a*a+b*b+c*c+d*d==x)
+					printf("%d %d %d %d\n",a,b,c,d);
+			}
+}

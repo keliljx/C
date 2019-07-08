@@ -1,0 +1,19 @@
+void main()
+{
+	int a, b, p, temp;
+	cin >> a >> b;
+	if (a < b)
+	{
+		temp = a;
+		a = b;
+		b = temp;
+	}
+	p = a%b;
+	while (p != 0)
+	{
+		a = b;
+		b = p;
+		p = a%b;
+	}
+	cout << b << endl;
+}

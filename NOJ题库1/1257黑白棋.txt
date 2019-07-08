@@ -1,0 +1,32 @@
+# include <stdio.h>
+
+void readdata();
+int a[8][8];
+int row,col;
+int main()
+{
+   int r,c; 
+   
+    readdata();
+	int x;
+   r = row -1;
+   c = col;
+  
+   while(r >= 0 && a[r][c] == a[row][col]){
+     r--;
+   }   
+   x = row - r ;
+   printf("%d\n",x);
+  return 0;
+}
+
+void readdata(){
+   int i,j;
+   
+   for(i = 0; i < 8; i++){
+	   for(j = 0; j < 8; j++){
+	      scanf("%d",&a[i][j]);
+	   }
+   } 
+   scanf("%d%d",&row,&col);
+}

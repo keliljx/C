@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+void main()
+{
+	int n,m,i,j,k = 0,a[100];
+	scanf("%d %d",&n,&m);
+
+	for(i = 0; i < n; i++)
+	{
+		a[i] = 1;
+	}
+
+	for(i = 0; i < n-1; i++)
+	{
+		for(j = 0; j < m; j++)
+		{
+			while(a[k] == 0)
+			{
+				k = (k + 1) % n;
+			}
+		
+			if(j == m-1)
+			{
+				a[k] = 0;
+			}
+			k = (k + 1) % n;
+		}
+	}
+	for(i = 0; i < n; i++)
+	{
+		if(a[i] == 1)
+			printf("%d\n",i);
+	}
+}

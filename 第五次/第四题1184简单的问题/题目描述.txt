@@ -1,0 +1,44 @@
+Problem D
+
+简单的问题
+
+时限：1000ms 内存限制：10000K 总时限：3000ms
+
+描述：
+
+
+In this problem, you're to calculate the distance between a point P(xp, yp, zp) and a segment (x1, y1, z1) - (x2, y2, z2), in a 3D space, i.e. the minimal distance from P to any point Q(xq, yq, zq) on the segment (a segment is part of a line). 
+
+
+输入：
+
+
+The first line contains a single integer T (1 ≤ T ≤ 1000), the number of test cases. Each test case is a single line containing 9 integers xp, yp, zp, x1, y1, z1, x2, y2, z2. These integers are all in [-1000,1000]. 
+
+
+输出：
+
+
+For each test case, print the minimal distance, to two decimal places. 
+
+
+输入样例：
+
+3 
+0 0 0 0 1 0 1 1 0 
+1 0 0 1 0 1 1 1 0 
+-1 -1 -1 0 1 0 -1 0 -1 
+
+
+
+
+输出样例：
+
+1.00 
+0.71 
+1.00 
+
+
+
+
+来源：

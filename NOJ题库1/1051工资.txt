@@ -1,0 +1,28 @@
+# include <stdio.h>
+
+int main()
+{
+	int y,w;
+	scanf("%d%d",&y,&w);
+	if(y>=20)
+	{
+		if(w>2000)
+		{
+		 w = w + 200;
+		}else
+		{
+		 w = w + 180;
+		}
+	}else
+	{
+		if(w >1500)
+		{
+		 w = w + 150;         
+		}else
+		{
+		 w = w + 120;
+		}
+	}
+  printf("%d\n",w);
+  return 0;
+}

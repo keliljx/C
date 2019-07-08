@@ -1,0 +1,17 @@
+# include <stdio.h>
+
+int main(){
+      int a,b[10],i=0,c=0;
+      scanf("%d",&a);
+       while(a!=0){
+	      b[i]=a%10;
+	      a/=10;
+	      i++;
+       }      
+       i--;
+       for(;i>=0;i--)
+          c=c*2+b[i];
+          printf("%d\n",c);
+      return 0;
+}
+      

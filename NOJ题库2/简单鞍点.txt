@@ -1,0 +1,33 @@
+int str[100][100];
+int m, n;
+int cal(int, int);
+int i, j;
+
+int main()
+{
+	cin >> m >> n;
+	for (i = 0; i < m; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			cin >> str[i][j];
+		}
+	}
+	cout << cal(m, n) << endl;
+}
+
+int cal(int m, int n)
+{
+	int count = 0;
+	for (i = 1; i < m - 1; i++)
+	{
+		for (j = 1; j < n - 1; j++)
+		{
+			if (str[i][j] > str[i - 1][j] && str[i][j] > str[i + 1][j] && str[i][j] < str[i][j - 1] && str[i][j] < str[i][j + 1])
+			{
+				count++;
+			}
+		}
+	}
+	return count;
+}

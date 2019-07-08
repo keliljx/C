@@ -1,0 +1,41 @@
+Problem C
+
+筛法(Sieve Method)
+
+时限：1000ms 内存限制：10000K 总时限：3000ms
+
+描述：
+
+
+用筛法求［a，b］中的素数。
+Find out the prime numbers in [a, b]. 
+
+输入：
+
+
+2个正整数：a b。
+a、b均在1000以内，且a小于等于b。
+2 positive integers: a, b. Both a and b are less than or equal 1000 and a is less than or equal to b.
+
+输出：
+
+
+[a b]区间内的所有素数，每个单独一行。
+All primes in [a, b], each one in a row.
+
+输入样例：
+
+2 5
+
+
+
+输出样例：
+
+2
+3
+5
+
+
+
+
+来源：

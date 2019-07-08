@@ -1,0 +1,81 @@
+#include<stdio.h>
+
+void mergesort(int *num,int start,int end);
+
+void merge(int *num,int start,int middle,int end);
+int main()
+{   
+  
+    int num[10000];
+    int i,n;
+    
+    scanf("%d",&n);
+    for (i = 0; i < n; i++) 
+	{
+        scanf("%d",&num[i]);
+    }
+
+    mergesort(num,0,n-1);
+
+    for (i=0; i<n; i++)
+    {
+        printf("%d\n",num[i]);
+    }
+
+    return 0;
+}
+void mergesort(int *num,int start,int end)
+{
+    int middle;
+    if(start<end)
+    {
+        middle=(start+end)/2;
+        
+        mergesort(num,start,middle);
+        
+        mergesort(num,middle+1,end);
+        
+        merge(num,start,middle,end);
+
+    }
+
+}
+
+void merge(int *num,int start,int middle,int end)
+{
+    int n1=middle-start+1;
+    int n2=end-middle;
+    
+    int *L=new int[n1+1];
+    int *R=new int[n2+1];
+    int i,j=0,k;
+    
+    for (i=0; i<n1; i++)
+    {
+        *(L+i)=*(num+start+i);
+    }
+    
+    *(L+n1)=1000000;
+    for (i=0; i<n2; i++)
+    {   
+		*(R+i)=*(num+middle+i+1);
+    }
+    *(R+n2)=1000000;
+    i=0;
+    
+    for (k=start; k<=end; k++)
+    {
+        if(L[i]<=R[j])
+        {
+            num[k]=L[i];
+            i++;
+        }
+        else 
+       {
+            num[k]=R[j];
+            j++;
+        }
+    }
+    delete [] L;
+    delete [] R;
+}

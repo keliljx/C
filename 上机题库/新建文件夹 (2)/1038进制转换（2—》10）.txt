@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+int input(int);
+
+char a[30];
+
+main(){
+	int i,n,sum=0;
+	n=input(1);
+	for(i=n-1;i>=0;i--){
+		if((a[i]-'0')!=1&&(a[i]-'0')!=0)
+			n=input(0);
+	}
+	for(i=n-1;i>=0;i--)
+		sum+=(a[i]-'0')*((int)pow(2,n-1-i));
+	printf("%d\n",sum);
+}
+int input(int m){
+	scanf("%s",a);
+	return strlen(a);
+}

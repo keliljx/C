@@ -1,0 +1,41 @@
+#include <stdio.h> 
+ int main(){
+	 int i,j,k;
+	 int m,n;
+	 int flag;
+	 int bot ,top,mid;
+	 int a[100000],b[100000];
+	 scanf("%d",&n);
+	 for(i=0;i<n;i++){
+		 scanf("%d",&a[i]);
+	 }
+	 scanf("%d",&m);
+	 for(j=0;j<m;j++){
+		 scanf("%d",&b[j]);
+	 }
+	 for(k=0;k<m;k++){
+		 flag=0;
+		 bot=0;
+		 top=n-1;
+		 mid = (bot+top)/2;
+		 while(b[k]!=a[mid]&&top>=bot){
+			 if(b[k]>a[mid])
+				  bot = mid + 1;
+			 else 
+                  top=mid-1;
+          mid=(top+bot)/2;		  
+		 }
+		 if(b[k]==a[mid])
+			 flag=1;
+		 if(flag){
+			 printf("Yes\n");
+		 }else{
+			 printf("No\n");
+		 }
+		 
+		 
+	 }
+	 return 0;
+ }
+ 
+ 

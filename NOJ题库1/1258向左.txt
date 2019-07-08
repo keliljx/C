@@ -1,0 +1,38 @@
+#include<iostream>
+
+using namespace std;
+
+void readdata();
+
+int a[8][8];
+int row, col;
+
+int main()
+{
+	int r, c;
+
+	readdata();
+	r = row;
+	c = col -1;
+	while(c >= 0 && a[r][c] == a[row][col])
+	{
+		c--;
+	}
+
+	cout << col - c << endl;
+
+}
+
+void readdata()
+{
+	int i, j;
+
+	for(i = 0; i < 8; i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+	cin >> row >> col;
+}

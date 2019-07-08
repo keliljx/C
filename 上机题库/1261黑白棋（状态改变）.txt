@@ -1,0 +1,443 @@
+#include<iostream>
+
+using namespace std;
+int a[8][8], row, col, color;
+
+void readdata();
+void luozi();
+int upward(int &num1,int &num2);
+int downward(int &num1,int &num2);
+int leftward(int &num1,int &num2);
+int rightward(int &num1,int &num2);
+int leftup(int &num1,int &num2);
+int leftdown(int &num1,int &num2);
+int rightup(int &num1,int &num2);
+int rightdown(int &num1,int &num2);
+void printstate();
+
+int main()
+{
+	readdata();
+	luozi();	
+	printstate();
+	return 0;
+}
+
+void readdata()
+{
+	int i, j;
+	for(i = 0; i < 8;i++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			cin>>a[i][j];
+		}
+	}
+	cin>>row>>col>>color;
+}
+
+void printstate()
+{
+	int i, j;
+	for(i = 0; i< 8; i ++)
+	{
+		for(j = 0; j < 8; j++)
+		{
+			cout<<a[i][j];
+			if(j < 7)
+			{ 
+		    	cout<<" ";
+			}
+		}
+		cout<<endl;
+	}
+}
+
+void luozi()
+{
+	int num1, num2, i, j, flag=0;
+	if(upward(num1, num2)==1)
+	{
+		flag=1;
+		for(i = row-1; i>=num1; i--)
+		{
+			a[i][col] = color;
+		}		
+	}
+	if(downward(num1, num2)==1)
+	{
+		flag=1;
+		for(i = row+1; i<=num1; i++)
+		{
+			a[i][col] = color;
+		}
+	}
+	if(leftward(num1, num2)==1)
+	{
+		flag=1;
+		for(j = col-1; j>=num2; j--)
+		{
+			a[row][j] = color;
+		}
+	}
+	if(rightward(num1, num2)==1)
+	{
+		flag=1;
+		for(j = col+1; j<=num2; j++)
+		{
+			a[row][j] = color;
+		}
+	}
+	if(leftup(num1, num2)==1)
+	{
+		flag=1;
+		i = row-1;
+		j = col-1;
+		while(i>= num1 && j>=num2)
+		{
+			a[i][j] = color;
+			 i--;
+			 j--;
+		}
+	}
+	if(leftdown(num1, num2)==1)
+	{
+		flag=1;
+		i = row+1;
+		j = col-1;
+		while(i <= num1 && j >=num2)
+		{
+			a[i][j] = color;
+			 i++;
+			 j--;
+		}
+	}
+	if(rightup(num1, num2)==1)
+	{
+		flag=1;
+		i = row-1;
+		j = col+1;
+		while(i>= num1 && j<=num2)
+		{
+			a[i][j] = color;
+			 i--;
+			 j++;
+		}
+	}
+	if(rightdown(num1, num2)==1)
+	{
+		flag=1;
+		i = row+1;
+		j = col+1;
+		while(i<= num1 && j<=num2)
+		{
+			a[i][j] = color;
+			 i++;
+			 j++;
+		}
+	}
+	if( flag == 1)
+	{
+		a[row][col] = color;
+	}
+}
+
+int upward(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row - 1;
+		c=col;
+		if(r < 0 || a[r][c] == 0 || a[r][c] == color)
+		{//不能越界并且落子处的上方不能是空格、不能是和自己颜色相同的子
+			val=0;
+		}
+		else
+		{//当上方不越界并且是颜色相异的棋时进入
+			while(r >= 0 && a[r][c] != color && a[r][c] != 0)
+			{
+				r--;
+			}
+			if(r < 0)
+			{
+				val=0;
+			}
+			if(r >= 0 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int downward(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row + 1;
+		c=col;
+		if(r > 7 || a[r][c] == 0 || a[r][c] == color)
+		{//不能越界并且落子处的下方不能是空格、不能是和自己颜色相同的子
+			val=0;
+		}
+		else
+		{//当下方不越界并且是颜色相异的棋时进入
+			while(r <= 7 && a[r][c] != color && a[r][c] != 0)
+			{
+				r++;
+			}
+			if(r > 7)
+			{
+				val=0;
+			}
+			if(r <= 7 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int leftward(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row;
+		c=col - 1;
+		if(c < 0 || a[r][c] == 0 || a[r][c] == color)
+		{//不能越界并且落子处的左方不能是空格、不能是和自己颜色相同的子
+			val=0;
+		}
+		else
+		{//当左方不越界并且是颜色相异的棋时进入
+			while(c >= 0 && a[r][c] != color && a[r][c] != 0)
+			{
+				c--;
+			}
+			if(c < 0)
+			{
+				val=0;
+			}
+			if(c >= 0 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int rightward(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row;
+		c=col + 1;
+		if(c > 7 || a[r][c] == 0 || a[r][c] == color)
+		{//不能越界并且落子处的右方不能是空格、不能是和自己颜色相同的子
+			val=0;
+		}
+		else
+		{//当右方不越界并且是颜色相异的棋时进入
+			while(c <= 7 && a[r][c] != color && a[r][c] != 0)
+			{
+				c++;
+			}
+			if(c > 7)
+			{
+				val=0;
+			}
+			if(c <= 7 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int leftup(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row - 1;
+		c=col - 1;
+		if(c < 0 || r < 0 || a[r][c] == 0 || a[r][c] == color)
+		{
+			val=0;
+		}
+		else
+		{
+			while(r >= 0 && c >= 0 && a[r][c] != color && a[r][c] != 0)
+			{
+				r--;
+				c--;
+			}
+			if(c < 0 || r < 0)
+			{
+				val=0;
+			}
+			if(c >= 0 && r >=0 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int leftdown(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row + 1;
+		c=col - 1;
+		if(c < 0 || r > 7 || a[r][c] == 0 || a[r][c] == color)
+		{
+			val=0;
+		}
+		else
+		{
+			while(r <= 7 && c >= 0 && a[r][c] != color && a[r][c] != 0)
+			{
+				r++;
+				c--;
+			}
+			if(c < 0 || r > 7)
+			{
+				val=0;
+			}
+			if(c >= 0 && r <= 7 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int rightup(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row - 1;
+		c=col + 1;
+		if(c > 7 || r < 0 || a[r][c] == 0 || a[r][c] == color)
+		{
+			val=0;
+		}
+		else
+		{
+			while(r >= 0 && c <= 7 && a[r][c] != color && a[r][c] != 0)
+			{
+				r--;
+				c++;
+			}
+			if(c > 7 || r < 0)
+			{
+				val=0;
+			}
+			if(c <= 7 && r >=0 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}
+
+int rightdown(int &num1,int &num2)
+{
+	int val;
+	if(a[row][col] != 0)
+	{
+		val = 0;
+	}
+	else
+	{
+		int r, c;	
+		r=row + 1;
+		c=col + 1;
+		if(c > 7 || r > 7 || a[r][c] == 0 || a[r][c] == color)
+		{
+			val=0;
+		}
+		else
+		{
+			while(r <= 7 && c <= 7 && a[r][c] != color && a[r][c] != 0)
+			{
+				r++;
+				c++;
+			}
+			if(c > 7 || r > 7)
+			{
+				val=0;
+			}
+			if(c <= 7 && r <=7 && a[r][c]==color)
+			{
+				val=1;
+				num1=r;
+				num2=c;
+			}
+		}
+	}
+	return val;
+}

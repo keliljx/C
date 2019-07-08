@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int fand(int a, int b);
+
+int main()
+{
+	int i,j;
+	for(i = 0; i < 2; i++)
+	{
+		for(j = 0; j < 2; j++)
+		{
+			printf("%d %d %d\n", i, j, fand(i, j));
+		}
+	}
+
+	return 0;
+}
+
+int fand(int a, int b)		//实现“且”的函数
+{
+	if(a == 1 && b == 1)
+		return 1;
+	else
+		return 0;
+}
+ 
+ 

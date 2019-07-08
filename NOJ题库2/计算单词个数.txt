@@ -1,0 +1,31 @@
+#define Exit_Success 0
+int getNumberSpace(string &a)
+{
+	int NumberSpace = 0;
+	int i = 0;
+	while (a[i] == ' ') //循环开始的条件
+	{
+		i++;
+	}
+	for (; i < a.size(); i++)
+	{
+
+		if (a[i] == ' ')
+		{
+			NumberSpace++;
+			while (a[i] == ' ')
+			{
+				i++;
+			}
+		}
+		
+	} 
+	return NumberSpace;
+}
+int main(int argc, char ** argv)
+{
+	string inputstring;
+	getline(cin,inputstring);
+	cout << getNumberSpace(inputstring)<<endl;
+	return Exit_Success;
+}

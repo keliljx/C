@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+char arr[10];
+int n;
+
+void jiaoHuan(int m,int n){
+	int temp = arr[m];
+	arr[m] = arr[n];
+	arr[n] = temp;
+}
+
+void search(int m){
+	int i = 0;
+	if(m == n-1){
+		for(i = 0; i<n; i++){
+			printf("%c",arr[i]);
+		}
+		printf("\n");
+	}
+	else{
+		for(i = m; i<n; i++){
+			jiaoHuan(m,i);
+			search(m+1);
+			jiaoHuan(m,i);
+		}
+	}
+}
+
+int main(){
+	int i = 0;
+	scanf("%d",&n);
+
+	for(i = 0; i < n; i++){
+		arr[i] = 'a'+i;
+	}
+
+	search(0);
+	return 0;
+}

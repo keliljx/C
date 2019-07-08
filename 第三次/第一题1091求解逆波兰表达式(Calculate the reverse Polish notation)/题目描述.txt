@@ -1,0 +1,39 @@
+Problem A
+
+求解逆波兰表达式(Calculate the reverse Polish notation)
+
+时限：1000ms 内存限制：10000K 总时限：3000ms
+
+描述：
+
+
+编写函数int add(char s[]);计算字符串形式的逆波兰表达式（即两个操作数在前，计算符在后）。本题内，保证每个操作数均为1位数。操作符有'+','-','*','/'四种。且保证计算过程中除法运算全部为整数除法，结果为整数。
+如23+4*,，结果20
+Write a function int add (char s []); Calculate the string form of reverse Polish notation (ie, the first is two operands, then the operator). This problem, to ensure that each of the operands are 1-digit. The operator have only four: '+', '-', '*', '/'. And to ensure that the division operation in the calculation process for all the integer division, the result is an integer.
+Such as 23+4*, the result is 20. 
+
+输入：
+
+
+一行字符串，长度不超过20。
+Input a string, no more then 20 characters. 
+
+输出：
+
+
+逆波兰表达式的计算结果。
+Output the result of reverse Polish notation.
+
+输入样例：
+
+23+4*
+
+
+
+输出样例：
+
+20
+
+
+
+来源：

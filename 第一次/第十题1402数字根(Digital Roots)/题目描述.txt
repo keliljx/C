@@ -1,0 +1,47 @@
+1402.数字根(Digital Roots) 
+
+时限：1000ms 内存限制：10000K  总时限：3000ms
+
+描述
+
+一个正整数的数字根是指该数字各位数字之和，如果和是一个个位数，那么这个数字就是它的数字根，如果和是个两位或多于两位的数字，那么就继续求和直到得到个位数。
+例如：数字24，把2和4相加，得到6，那么6就是24的数字根；又比如数字39，把数字3和9相加，得到12，因为12时是两位数，所以继续把1和2相加，得到3，于是3就是39的数字根。
+The digital root of a positive integer is found by summing the digits of the integer. If the resulting value is a single digit then that digit is the digital root. If the resulting value contains two or more digits, those digits are summed and the process is repeated. This is continued as long as necessary to obtain a single digit. 
+For example, consider the positive integer 24. Adding the 2 and the 4 yields a value of 6. Since 6 is a single digit, 6 is the digital root of 24. Now consider the positive integer 39. Adding the 3 and the 9 yields 12. Since 12 is not a single digit, the process must be repeated. Adding the 1 and the 2 yeilds 3, a single digit and also the digital root of 39.
+
+ 
+
+输入
+
+输入一个正整数,
+input a positive integer,
+
+ 
+
+输出
+
+输出它的数字根。
+Output its digital root.
+
+ 
+
+输入样例
+
+39
+
+
+ 
+
+输出样例
+
+3
+
+
+ 
+
+提示
+
+
+ 
+
+来源

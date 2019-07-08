@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<math.h>
+
+void main()
+{
+	int a[101],m;
+
+	for(int i = 1; i < 101; i ++)
+	{
+		a[i] = 1;
+	}
+	
+	for(int j = 2; j <= 10; j++)
+	{
+		if(a[j] == 1)
+		{
+			m = j * 2;
+			while(m < 100)
+			{
+				a[m] = 0;
+				m = j + m;
+			}
+		}
+	}
+	for(int n = 2; n < 100; n ++)
+	{
+		if(a[n] == 1)
+			printf("%d\n",n);
+	}
+}

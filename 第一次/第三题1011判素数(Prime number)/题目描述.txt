@@ -1,0 +1,28 @@
+1011.判素数(Prime number)
+
+时限：100ms 内存限制：10000K  总时限：1000ms
+
+描述
+给出一个数n（2<=n<=10000），判定它是否为素数。 
+素数：一个大于等于2的数，除了1和它本身，再没有其他的整数能将其整除的数叫素数。
+Input a number n（2<=n<=10000）, judge if it is a prime number.
+ 
+输入
+从标准输入输入一个整数。
+Input a number n（2<=n<=10000）
+ 
+输出
+若给定数为素数，向标准输出输出“Yes”，否则，输出“No”。
+If the number is a prime, output “Yes”. Otherwise, output “No”.
+ 
+输入样例
+7
+ 
+输出样例
+Yes
+ 
+提示
+从2开始，到n－1，对n进行试除，若存在某个数能将n整除，说明n为非素数。若不存在任何的整数能将其整除，说明n试素数。
+Divide n for try using from 2 to n-1. If n can be divided exactly by a certain number, it is not a prime. If not, n is a prime number.
+ 
+来源

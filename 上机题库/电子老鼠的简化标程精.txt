@@ -1,0 +1,65 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+queue<int> q1;
+
+int a[12][12];
+int s, t;
+int main()
+{
+	int temp, x;
+	
+	readdata();
+	init();
+	if(search() == 1)
+		cout << "Yes" << endl;
+	else
+		cout << "No" << endl;
+}
+
+void readdata()
+{
+	int i, j, row, col;
+
+	for(i = 0; i < 12; i++)
+	{
+		for(j = 0; j < 12; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+	cin >> row >> col;
+	s = row * 12 + col;
+	cin >> row >> col;
+	t = row * 12 + col;
+}
+
+void init()
+{
+	q1.push(s);
+}
+int search()
+{
+	int i, v;
+	while(!q1.empty())
+	{
+		u = q1.front();
+		q1.pop();
+		for(i = 0; i < 4; i++)
+		{
+			if(canmoveto(u, i))
+			{
+				v = moveto(u, i);
+				if(v == t)
+				{
+					return(1);
+				}
+				if(!used(v))
+				{
+					q1.push(v);
+				}
+			}
+		}
+	}
+}

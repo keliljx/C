@@ -1,0 +1,70 @@
+# include <stdio.h>
+# include <malloc.h>
+# include <stdlib.h>
+typedef struct Node
+{
+	int data; //数据域
+	struct Node * pNext; //指针域
+}NODE, *PNODE; //NODE等价于struct Node    PNODE等价于struct Node *
+
+PNODE create_list(void)
+{
+	int n;  //用来存放有效节点的个数,也就是正整数n的值
+	int i;
+	int val; //用来临时存放用户输入的结点的值
+
+	//分配了一个不存放有效数据的底结点
+	PNODE pHead = (PNODE)malloc(sizeof(NODE));
+	if (NULL == pHead)
+	{
+		printf("分配失败, 程序终止!\n");
+		exit(-1);
+	}
+	PNODE pTail = pHead;
+	pTail->pNext = NULL;
+
+	printf("请输入一个正整数n: \n");
+	scanf("%d", &n);
+
+	for (i=0; i<n; ++i)
+	{
+		printf("请输入第%d个整数的值: ", i+1);
+		scanf("%d", &val);
+
+		PNODE pNew = (PNODE)malloc(sizeof(NODE));
+		if (NULL == pNew)
+		{
+			printf("分配失败, 程序终止!\n");
+			exit(-1);
+		}
+		pNew->data = val;
+		pTail->pNext = pNew;
+		pNew->pNext = NULL;
+		pTail = pNew;
+	}
+
+	return pHead;
+}
+
+int sum_list(PNODE pHead)
+{
+	int sum =0;
+	PNODE p = pHead->pNext;
+
+	while (NULL != p)
+	{
+		sum=sum + p->data;
+		p = p->pNext;
+	}
+	printf("%d",sum);
+	return sum;
+}
+
+int main(void)
+{
+
+	PNODE pHead = NULL; //等价于 struct Node * pHead = NULL;
+	pHead = create_list(); //create_list()功能：创建一个非循环单链表，并将该链表的头结点的地址付给pHead
+    sum_list(pHead);
+  return 0;
+}

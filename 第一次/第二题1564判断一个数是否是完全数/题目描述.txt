@@ -1,0 +1,24 @@
+1564.判断一个数是否是完全数
+
+时限：1000ms 内存限制：10000K  总时限：3000ms
+
+描述
+如果一个大于2的整数的不包含它自身的约数之和恰好等于它本身，则称其为完全数。如：6＝1＋2＋3，所以，6是个完全数。
+Perfect number is defined as follows:the sum of it’s common divisor which does not includes it’s maximum equals itself.
+ 
+输入
+输入一个大于2的整数n，
+ 
+输出
+编程判断n是不是完全数，如果是输出“Yes”，否则输出“No”。
+ 
+输入样例
+28
+ 
+输出样例
+Yes
+ 
+提示
+输出带一个回车。
+ 
+来源

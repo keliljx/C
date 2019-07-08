@@ -1,0 +1,18 @@
+# include <stdio.h>
+
+int main(){
+      int a;
+      char s[20];
+      int i=0,rem;
+      scanf("%d",&a);
+      do{
+      	  rem = a%2;
+		  a=a/2;
+		  s[i]=rem;
+		  i++;		  	    	
+      }while(a != 0);
+      while(i>0)
+          printf("%d",s[--i]);
+          printf("\n");
+      return 0;
+}

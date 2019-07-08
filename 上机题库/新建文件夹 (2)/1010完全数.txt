@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	for(int i = 1;i <= n;i++)
+	{
+		int count = 0;
+		for(int j = 2;j <= i;j++)
+		{
+			int a = i % j;
+			int b = i / j;
+			if(a==0)
+				count += b;
+		}
+		if(count == i)
+			printf("%d\n",i);
+	}
+	return 0;
+}

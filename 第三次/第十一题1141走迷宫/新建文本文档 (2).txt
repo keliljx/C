@@ -1,0 +1,75 @@
+# include <stdio.h>
+
+int a[20][20];
+int i, j;
+int m, n;
+int p, q;
+int y, z;
+void search(int u, int v);
+int flag = 0;
+
+int main()
+{
+	for (i = 0; i < 11; ++i)
+	{
+		for (j = 0; j < 11; ++j)
+		{
+			a[i][j] = 1;
+		}
+	}
+	scanf("%d %d %d %d %d %d", &m, &n, &p, &q, &y, &z);
+	for (i = 0; i < m; ++i)
+	{
+		for (j = 0; j < n; j++)
+		{
+			scanf("%d", &a[i][j]);
+		}
+	}
+	search(p, q);
+	if (flag)
+	{
+		printf("Yes\n");
+	}
+	else
+	{
+		printf("No\n");
+	}
+}
+
+void search(int u, int v)
+{
+	if (u == y && v == z)
+	{
+		flag = 1;
+	}
+	else if (flag == 1)
+	{
+	}
+	else
+	{
+		a[u][v] = 1;
+		if (a[u + 1][v] == 0)
+		{
+			search(u + 1, v);
+		}
+		if (u - 1 >= 0)
+		{
+			if (a[u - 1][v] == 0)
+			{
+				search(u - 1, v);
+			}
+		}
+		if (v - 1 >= 0)
+		{
+			if (a[u][v - 1] == 0)
+			{
+				search(u, v - 1);
+			}
+		}
+		if (a[u][v + 1] == 0)
+		{
+			search(u, v + 1);
+		}
+		a[u][v] = 0;
+	}
+}

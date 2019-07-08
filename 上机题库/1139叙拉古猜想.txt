@@ -1,0 +1,24 @@
+# include <stdio.h>
+
+int xigula();
+int main(){
+      xigula();
+      return 0;
+}
+
+
+int  xigula(){
+       int N;
+       scanf("%d",&N);
+	   printf("%d\n",N);
+	   while(N != 1){
+	   if(N % 2 == 0){
+	      N=N/2;
+		  printf("%d\n",N);
+	   }else{
+	      N=N * 3 +1; 
+		  printf("%d\n",N);
+	   } 
+	   }
+	   return 0;
+}

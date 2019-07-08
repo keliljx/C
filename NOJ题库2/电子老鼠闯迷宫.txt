@@ -1,0 +1,273 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+
+queue <int> q1;
+
+int dr[4] = {0,1,0,-1};
+int dc[4] = {-1,0,1,0};
+
+char str[12][13];
+int n=12;
+int step[12][12] = {0};
+int s,t;
+
+void readdata();
+void init();
+int bfs();
+int moveto(int u,int dire);
+int canmoveto(int u,int dire);
+
+int main()
+{
+	int num;
+	readdata();
+	init();
+	num = bfs();
+	cout<<num<<endl;
+	return 0;
+}
+
+
+void readdata()
+{
+	int i;
+	int row,col;
+	cin>>row>>col;
+	s = (row-1)*n +(col-1);
+	cin>>row>>col;
+	t = (row-1)*n +(col-1);
+	for(i=0;i<n;i++)
+	{
+		cin>>str[i];
+	}
+}
+
+void init()
+{
+	int i,j;
+	for(i =0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			step[i][j] = -1;
+		}
+	}
+	q1.push(s);
+	step[s/n][s%n]=0;  
+}
+
+int bfs()
+{
+	int u,v;
+	int i;
+	while(!q1.empty())
+	{
+		u = q1.front();
+		q1.pop();
+		for(i=0; i<4; i++)  
+		{
+			if(canmoveto(u,i))
+			{
+				v=moveto(u,i);
+				if(v==t)
+				{
+					return (step[u/n][u%n]+1);
+				}
+				if(step[v/n][v%n]==-1)
+				{
+					q1.push(v);
+					step[v/n][v%n]= step[u/n][u%n]+1;
+				}
+			}
+		}
+	}
+	return -1;
+}
+
+int canmoveto(int u,int dire)
+{
+	int row,col;
+	int r,c;
+	row = u/n;
+	col = u%n;
+	r =row+dr[dire];
+	c =col+dc[dire];
+	if(r>=0 && r<n && c>=0 && c<n &&str[r][c]!='X'&&step[r][c]==-1)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int moveto(int u,int dire)
+{
+
+	int row,col;
+	int r,c;
+	int v;
+	row = u/n;
+	col = u%n;
+	r =row+dr[dire];
+	c =col+dc[dire];
+	v=r*n+c;
+	return v;
+}
+
+#include<iostream>
+#include<queue>
+using namespace std;
+
+queue <int>q1;
+
+int dr[4] = {0,1,0,-1};
+int dc[4] = {-1,0,1,0};
+
+char a[12][13];
+int n=12;
+int step[12][12] = {0};
+int s,t;
+
+
+void readdata();
+void init();
+int bfs();
+int moveto(int u,int dire);
+int canmoveto(int u,int dire);
+
+int main()
+{
+	
+	int num;
+
+	readdata();
+
+	init();
+
+	num = bfs();
+	
+	cout<<num<<endl;
+
+	return 0;
+}
+
+
+void readdata()
+{
+	int i;
+	int row,col;
+
+	cin>>row>>col;
+	s = (row-1)*n +(col-1);
+
+	cin>>row>>col;
+	t = (row-1)*n +(col-1);
+
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+}
+
+void init()
+{
+	int i,j;
+	for(i =0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			step[i][j] = -1;
+		}
+	}
+	q1.push(s);
+	step[s/n][s%n]=0;  
+}
+
+int bfs()
+{
+	int u,v;
+	int i;
+
+	while(!q1.empty())
+	{
+		u = q1.front();
+		q1.pop();
+
+		for(i=0; i<4; i++)  
+		{
+			if(canmoveto(u,i))
+			{
+				v=moveto(u,i);
+
+				if(v==t)
+				{
+					return (step[u/n][u%n]+1);
+
+				}
+				if(step[v/n][v%n]==-1)
+				{
+					q1.push(v);
+					step[v/n][v%n]= step[u/n][u%n]+1;
+				}
+			}
+
+		}
+	
+	}
+	return -1;
+
+}
+
+int canmoveto(int u,int dire)
+{
+	int row,col;
+	int r,c;
+
+	row = u/n;
+	col = u%n;
+	r =row+dr[dire];
+	c =col+dc[dire];
+	if(r>=0 && r<n && c>=0 && c<n &&a[r][c]!='X'&&step[r][c]==-1)
+	{
+		return 1;
+
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int moveto(int u,int dire)
+{
+
+	int row,col;
+	int r,c;
+	int v;
+
+	row = u/n;
+	col = u%n;
+	r =row+dr[dire];
+	c =col+dc[dire];
+
+	v=r*n+c;
+
+	return v;
+}
+
+2 9 11 8 
+XXXXXXXXXXXX
+X......X.XXX
+X.X.XX.....X
+X.X.XX.XXX.X
+X.X.....X..X
+X.XXXXXXXXXX
+X...X.X....X
+X.XXX...XXXX
+X.....X....X
+XXX.XXXX.X.X
+XXXXXXX..XXX
+XXXXXXXXXXXX

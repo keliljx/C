@@ -1,0 +1,38 @@
+Problem D
+
+亲密数(close numbers)
+
+时限：2000ms 内存限制：10000K 总时限：2000ms
+
+描述：
+
+
+两个整数a和b，如果a的不包含自身的因子之和等于b，并且b的不包含自身的因子和等于a，且a不等于b，则称a，b为一对亲密数。
+找出满足a<=10000且b<=10000的全部亲密数对。
+A pair of close numbers(a and b) is defined as follows: the sum of a’s factors equals b and the sum of b’s factors equals a,but a does not equals b.Find all close numbers which are not greater than 10000.
+
+输入：
+
+
+本题无输入。
+None
+
+输出：
+
+
+升序输出所有满足条件的数对，每对数字一行，小数字在前，大数字在后，用空格分隔。注意：本题要求程序效率要高，直接写成二重循环肯定超时。
+Output all pair of close numbers in ascending order,and each pair occupies one line with the smaller one in front and the pair is separated by a space.
+
+输入样例：
+
+无
+
+
+
+输出样例：
+
+无
+
+
+
+来源

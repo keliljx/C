@@ -1,0 +1,28 @@
+1135.阿姆斯特朗数(Armstrong number)
+
+时限：1000ms 内存限制：10000K  总时限：1000ms
+
+描述
+阿姆斯特朗数又称水仙花数，是指一种三位数，其各个数字之立方和等于该数。
+Armstrong number which is also called Daffodils number is a three-figure number,and the sum of the number of it’s respective positions equals itself.
+For example 153 = 1*1*1 + 5*5*5 + 3*3*3
+ 
+输入
+本题无输入
+None
+ 
+输出
+升序输出所有阿姆斯特朗数，每个数字占一行。
+Output all Armstrong number in ascending order and every integer occupies a line only.
+ 
+输入样例
+无
+None
+ 
+输出样例
+无
+None
+ 
+提示
+ 
+来源

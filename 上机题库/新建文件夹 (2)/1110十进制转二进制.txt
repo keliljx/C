@@ -1,0 +1,15 @@
+#include<stdio.h>
+int  main(){
+	int b,i,c=0,a[30];
+	scanf("%d",&b);
+	while(b!=0){
+		i=b%2;
+		a[c]=i;
+		c++;
+		b/=2;
+	}
+	for(;c>=1;c--){
+		printf("%d",a[c-1]);
+		}
+	printf("\n");
+	}

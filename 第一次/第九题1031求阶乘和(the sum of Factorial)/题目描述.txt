@@ -1,0 +1,47 @@
+1031.求阶乘和(the sum of Factorial)
+
+时限：1000ms 内存限制：10000K  总时限：3000ms
+
+描述
+
+给你一个正整数n，请你求1到n的阶乘的和，并输出最后结果
+如给你5 , 即计算 1!+2!+3!+4!+5! 
+ Input a positive integer n,and calculate the sum of n!.For example,n is 5 and calculate the following formula: 
+1!+2!+3!+4!+5!
+
+ 
+
+输入
+
+一个正整数n
+a positive integer n.
+
+ 
+
+输出
+
+求得的阶乘和
+The sum of n!
+
+ 
+
+输入样例
+
+5
+
+
+ 
+
+输出样例
+
+153
+
+
+ 
+
+提示
+
+
+ 
+
+来源

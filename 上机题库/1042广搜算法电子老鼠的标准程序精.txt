@@ -1,0 +1,107 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+void readdata();
+void init();
+int search();
+int moveto(int u, int d);
+int canmoveto(int u, int d);
+
+queue<int> q1;
+
+int a[12][12];
+int s, t;
+
+int main()
+{
+	int num;
+
+	readdata();
+	init();
+	num = search();
+	cout << num << endl;
+	return(0);
+}
+
+void readdata()
+{
+	int i, j, row, col;
+
+	for(i = 0; i < 12; i++)
+	{
+		for(j = 0; j < 12; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+	cin >> row >> col;
+	s = row * 12 + col;
+	cin >> row >> col;
+	t = row * 12 + col;
+}
+
+void init()
+{
+	int row, col;
+	q1.push(s);
+	row = s / 12;
+	col = s % 12;
+	a[row][col] = 0;
+}
+int search()
+{
+	int i, u, v, row, col, num;
+	while(!q1.empty())
+	{
+		u = q1.front();
+		q1.pop();
+		row = u / 12;
+		col = u % 12;
+		num = a[row][col];
+		for(i = 0; i < 4; i++)
+		{
+			if(canmoveto(u, i))
+			{
+				v = moveto(u, i);
+				row = v / 12;
+				col = v % 12;
+				if(v == t)
+				{
+					return(num + 1);
+				}
+				if(a[row][col] == -1)
+				{
+					q1.push(v);
+					a[row][col] = num + 1;
+
+				}
+			}
+		}
+	}
+	return(0);
+}
+
+int moveto(int u, int d)
+{
+	int row, col;
+	int dire[4][2] = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
+
+	row = u / 12 + dire[d][0];
+	col = u % 12 + dire[d][1];
+	return(row * 12 + col);
+}
+
+int canmoveto(int u, int d)
+{
+	int row, col, cs;
+
+	cs = moveto(u, d);
+	row = cs / 12;
+	col = cs % 12;
+	if(row >= 0 && row <= 11 && col >= 0 && col <= 11 && a[row][col] != -2)
+		return(1);
+	else
+		return(0);
+}
+

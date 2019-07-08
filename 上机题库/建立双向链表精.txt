@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *prior;
+	struct node *next;
+};
+int main()
+{
+	int i, m, num, x;
+	struct node *p, *q, *h;
+
+	h = new struct node();
+	h -> prior = h;
+	h -> next = h;
+
+	cin >> m;
+	for(i = 0; i < m; i++)
+	{
+		cin >> num;
+		q = new struct node();
+		q->data = num;
+
+		p = h;
+		while(p->next != h && p->next->data < num)
+			p = p->next;
+		q->prior = p;
+		q->next = p->next;
+		p->next->prior = q;
+		p->next = q;
+	}
+	p = h->next;
+	while(p!= h)
+	{
+		cout << p->data << endl;
+		p = p->next;
+	}
+}
+

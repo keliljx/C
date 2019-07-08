@@ -1,0 +1,17 @@
+# include <stdio.h>
+
+int main()
+{		
+	int x, sum;
+	
+	sum = 0;
+	scanf("%d", &x);
+	while(x != 0)
+	{
+		sum = sum + x;
+		scanf("%d", &x);
+	}
+	
+	printf("%d\n", sum);
+	return 0;
+}

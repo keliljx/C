@@ -1,0 +1,58 @@
+Problem G
+
+田忌赛马(tian ji racing)
+
+时限：1000ms 内存限制：10000K 总时限：3000ms
+
+描述：
+
+
+田忌与齐王赛马，双方各有n匹马参赛（n<=100），每场比赛赌注为1两黄金，现已知齐王与田忌的每匹马的速度，并且齐王肯定是按马的速度从快到慢出场，现要你写一个程序帮助田忌计算他最好的结果是赢多少两黄金（输用负数表示）。
+Tian Ji and the king play horse racing, both sides have n horse (n is no more the 100), every game a bet of 1 gold, now known king and Tian Ji each horse's speed, and the king is definitely on the horse speed from fast to slow, we want you to write a program to help Tian Ji his best result is win the number gold (lost express with the negative number).
+
+输入：
+
+
+多个测例。
+每个测例三行：第一行一个整数n，表示双方各有n匹马；第二行n个整数分别表示田忌的n匹马的速度；第三行n个整数分别表示齐王的n匹马的速度。
+n＝0表示输入结束。
+A plurality of test cases.
+Each test case of three lines: the first line contains an integer n, said the two sides each have n horse; second lines of N integers n Tian Ji horse speed; third lines of N integers King n horse speed.
+N = 0 indicates the end of input.
+
+输出：
+
+
+每行一个整数，田忌最多能赢多少两黄金。
+how many gold the tian ji win 
+
+输入样例：
+
+3
+92 83 71
+95 87 74
+2
+20 20
+20 20
+2
+20 19
+22 18
+3
+20 20 10
+20 20 10
+0
+
+
+
+
+输出样例：
+
+1
+0
+0
+0
+
+
+
+
+来源：

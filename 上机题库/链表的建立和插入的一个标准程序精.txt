@@ -1,0 +1,65 @@
+#include<iostream>
+
+using namespace std;
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+void insert(struct node *h, int x);
+void output(struct node *h);
+
+int main()
+{
+	int x, n, i;
+	struct node *h, *q;
+
+	cin >> n;
+	cin >> x;
+	h = new struct node;
+	h ->data = x;
+	h ->next = NULL;
+
+	for(i = 0; i < n - 1; i++)
+	{
+		cin >> x;
+		q = new struct node;
+		q ->data = x;
+		q ->next = h;
+		h = q;
+	}
+
+	cin >> x;
+	insert(h, x);
+	output(h);
+	
+	return 0;
+}
+
+void insert(struct node *h, int x)
+{
+	struct node *p, *q;
+	
+	q = new struct node;
+	q -> data = x;
+
+	p = h;
+	while(p -> next != NULL && p -> next -> data < x)
+		p = p -> next;
+	q -> next = p -> next;
+	p -> next = q;
+}
+
+void output(struct node *h)
+{
+	struct node *p;
+
+	p = h;
+	while(p != NULL)
+	{
+		cout << p -> data << endl;
+		p = p -> next;
+	}
+}

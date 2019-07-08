@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<math.h>
+int f(int n);
+int g(int n);
+int main()
+{
+    int a,b,i,n;
+    scanf("%d%d",&a,&b);
+    if(a<12)//考虑到“11”的特殊性，需要分类讨论。
+    {
+        if(b<12)//a，b均小于11时，输出两者之间的质数即可
+        {
+            for(i=a; i<=b; i++)
+            {
+                if(f(i)==1)
+                    printf("%d\n",i);
+            }
+        }
+        if(b>=12)//a小于11，b大于11时，输出a与11间的所有质数，然后生成大于11不大于b的所有偶数位回文数，判断其是否为质数
+        {
+            for(i=a; i<12; i++)
+            {
+                if(f(i)==1)
+                    printf("%d\n",i);
+            }
+            goto L;
+        }
+    }
+    if(a>=12)//a大于11时，只需生成a与b之间的所有回文质数，并判断是否为质数即可。
+    {
+
+       L: for(i=10; i<10000; i++)
+        {
+            n=g(i);
+            if(n<a)continue;//判断n是否小于a，若小于a，则循环继续。
+            if(n>b)break;//判断n是否大于b，若成立，则循环结束。
+            else if(f(n)==1)
+                printf("%d\n",n);
+        }
+    }
+    return 0;
+}
+int f(int n)//判断n是否为素数的函数
+{
+    int k;
+    if(n==2)
+        return 1;
+    if(n%2==0&&n!=2)
+    {
+        return 0;
+    }
+    for(k=3; k<=sqrt(n); k=k+2) //将范围缩小到根号n可提高程序运行效率。
+    {
+        if(n%k==0)
+            return 0;
+    }
+    return 1;
+}
+int g(int n)//生成回文数的函数
+{
+    int i,j,m,sum=0;
+    j=n;
+    n=n/10;//使其生成奇数位回文数
+    while(n!=0)
+    {
+        i=n%10;
+        n=n/10;
+        sum=sum*10+i;
+        j=10*j;
+    }
+    m=sum+j;
+    return m;
+}

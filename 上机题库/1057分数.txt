@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void main()
+{
+	int i;
+	float a, b, c, s;
+    int m;
+    scanf("%d",&m);
+	a = b = 1.0;
+	c = 0;
+	s = 0;
+	for(i = 0; i < m; i++)
+	{
+		c = a + b;
+		s = s + c / a;
+	
+		b = a;
+		a = c;		
+	}
+	printf("%.3f\n", s);
+}

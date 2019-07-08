@@ -1,0 +1,172 @@
+#include <stdio.h>
+
+int a[101];
+
+void init();
+void calculate();
+void output();
+
+
+int main(void){
+	
+	init();
+	calculate();
+	output();
+	return 0;
+}
+
+void init(){
+	for(int i=2;i<101;i++)
+	{
+		a[i] = 1;
+	}
+}
+
+void calculate(){
+	for(int i=2;i<101;i++){
+		if(a[i]==1){
+			for(int j=i+i;j<101;j+=i){
+				a[j]=0;
+			}
+		}
+	}
+}
+
+void output(){
+	for(int i=2;i<101;i++){
+		if(a[i]==1){
+			printf("%d\n",i);
+		}
+	}
+}	
+
+
+#include <iostream>
+using namespace std;
+
+void search();
+void dfs(int m);
+int a[3][3];
+int used[10]={0};
+
+int main()
+{
+	dfs(0);
+	return 0;
+}
+
+void dfs(int m)
+{
+	int i;
+	if(m==9)
+		search();
+	else
+	{
+		for(i=1;i<=9;i++)
+		{
+			if(used[i]==0)
+			{
+				a[m/3][m%3]=i;
+				used[i]=1;
+				dfs(m+1);
+				used[i]=0;
+			}
+		}
+	}
+}
+
+void search()
+{
+	int i,j,flag=1;
+	for(int i=0;i<3;i++)
+	{
+		if(a[i][0]+a[i][1]+a[i][2]!=15||a[0][i]+a[1][i]+a[2][i]!=15)
+		{
+			flag=0;
+			break;
+		}
+	}
+	if(a[0][0]+a[1][1]+a[2][2]!=15||a[0][2]+a[1][1]+a[2][0]!=15)
+		flag=0;
+	if(flag==1)
+	{
+		for(i=0;i<3;i++)
+		{
+			for(j=0;j<3;j++)
+			{
+				cout<<a[i][j]<<" ";
+			}
+			cout<<endl;
+		}
+		cout<<endl;
+	}
+}
+
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+void search(int m);
+void print();
+int n;
+int str[20];
+
+int main()
+{
+	cin>>n;
+	search(0);
+	return 0;
+}
+
+void search(int m)
+{
+	if(m==n)
+		print();
+	else
+	{
+		str[m]=0;
+		search(m+1);
+		str[m]=1;
+		search(m+1);
+	}
+}
+
+void print()
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<str[i];
+	}
+	cout<<endl;
+}
+
+µ¥´Êµ¹ÖÃ
+#include<iostream>
+using namespace std;
+
+void reverse(char string[]);
+
+void main()
+{
+	int i;
+	char a[100];
+	cin>>a;
+	for(i=0;i<strlen(a);i++)
+	{
+		reverse(a);
+	}
+	cout<<a<<endl;
+	system("pause");
+}
+
+void reverse(char string[])
+{
+	int j,length;char temp;
+	length=strlen(string);
+	for(j=0;j<length/2;j++)
+	{
+		temp=string[j];
+		string[j]=string[length-1-j];
+		string[length-1-j]=temp;
+	}
+}

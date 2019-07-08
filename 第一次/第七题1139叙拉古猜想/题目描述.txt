@@ -1,0 +1,32 @@
+1139.叙拉古猜想
+
+时限：1000ms 内存限制：10000K  总时限：3000ms
+
+描述
+叙拉古猜想又称科拉兹猜想、哈塞猜想、3n+1猜想、乌拉姆猜想或角谷猜想，是指对于每一个大于1的正整数，如果它是奇数，则将其乘3加1，如果它是偶数，则将除以2，如此循环，最终将得到1。
+Syracuse conjecture also known as collards conjecture, Hasse conjecture, 3n +1 conjecture the Ulam conjecture or angle Valley conjecture, means for each positive integer greater than 1, if it is odd, then times 3 and plus1, if it is even, then divided by 2, and so on, will eventually give 1.
+ 
+输入
+输入数据包含一个整数N(1<N<=10000)。
+Input a positive integer.
+ 
+输出
+输出数据包含从这个整数到1的按照叙拉古猜想变换的序列，每行一个数字。
+Output the sequence in accordance with the Syracuse guess, one per line figures.
+ 
+输入样例
+3
+ 
+输出样例
+3
+10
+5
+16
+8
+4
+2
+1
+ 
+提示
+ 
+来源

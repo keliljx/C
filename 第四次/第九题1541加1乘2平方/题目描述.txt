@@ -1,0 +1,57 @@
+Problem I
+
+加1乘2平方
+
+时限：1000ms 内存限制：10000K 总时限：3000ms
+
+描述：
+
+
+最简单的队列的使用
+#include <iostream>
+ #include <queue>
+ using namespace std;
+
+ queue<int> q1;
+ int main()
+ {
+ int temp, x;
+ q1.push(5);//入队
+q1.push(8);//入队
+temp = q1.front();//访问队首元素
+q1.pop();//出队
+q1.empty();//判队列是否为空
+q1.back();//返回队尾元素
+q1.size();//返回队列长度
+}
+
+给定两个正整数m、n，问只能做加1、乘2和平方这三种变化，从m变化到n最少需要几次
+
+
+输入：
+
+
+输入两个10000以内的正整数m和n，且m小于n
+
+
+输出：
+
+
+输出从m变化到n的最少次数
+
+
+输入样例：
+
+1 16
+
+
+
+
+输出样例：
+
+3
+
+
+
+
+来源：

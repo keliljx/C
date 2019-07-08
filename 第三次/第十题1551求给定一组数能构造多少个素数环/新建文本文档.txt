@@ -1,0 +1,73 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+int IsPrime(int k);
+void CreatPrime();
+void search(int m);
+
+int prime[33];
+int num[16];
+int n,ring;
+
+int main()
+{
+	CreatPrime();
+	cin>>n;
+	ring=0;
+	for(int i=0;i<n;i++)
+	{
+		cin>>num[i];
+	}
+	search(1);
+	cout<<ring<<endl;
+	return 0;
+}
+
+void search(int m)
+{
+	if(m==n)
+	{
+		if(prime[num[0]+num[n-1]])
+		{
+			ring++;
+		}
+	}
+	else
+	{
+		for(int i=m;i<n;i++)
+		{
+			int temp=num[i]+num[m-1];
+			if(prime[temp])
+			{
+				swap(num[i],num[m]);
+				search(m+1);
+				swap(num[i],num[m]);
+			}
+		}
+	}
+}
+
+int IsPrime(int k)
+{
+	int flag=1;
+	for(int i=2;i<=sqrt(k);i++)
+	{
+		if(k%i==0)
+		{
+			flag=0;
+			break;
+		}
+	}
+	return flag;
+}
+void CreatPrime()
+{
+	for(int i=3;i<32;i++)
+	{
+		prime[i]=IsPrime(i);
+	}
+}

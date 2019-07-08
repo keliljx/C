@@ -1,0 +1,31 @@
+#include<stdio.h>
+int a[50][50];
+int main()
+{
+	int m, n, k, t, sum;
+	scanf("%d%d",&m,&n);
+	for(k=0;k<m;k++)
+	{
+		for(t=0;t<n;t++)
+		{
+			scanf("%d",&a[k][t]);
+		}
+	}
+	sum=0;
+	for(k=1;k<m-1;k++)
+	{
+		for(t=1;t<n-1;t++)
+		{
+			if(a[k][t]>a[k-1][t] && a[k][t]>a[k+1][t] && a[k][t]<a[k][t-1] && a[k][t]<a[k][t+1])
+			{
+				sum++;
+			}
+			if(a[k][t]<a[k-1][t] && a[k][t]<a[k+1][t] && a[k][t]>a[k][t-1] && a[k][t]>a[k][t+1])
+			{
+				sum++;
+			}
+		}
+	}
+	printf("%d\n",sum);
+	return 0;	
+}
